@@ -3,20 +3,10 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
 import scrollScreen from 'rc-scroll-anim/lib/ScrollScreen';
-import Banner3 from './Banner3';
-import Feature4 from './Feature4';
-import Content8 from './Content8';
-import Content5 from './Content5';
-import Content12 from './Content12';
-import Contact0 from './Contact0';
+import Footer1 from './Footer1';
 
 import {
-  Banner30DataSource,
-  Feature40DataSource,
-  Content80DataSource,
-  Content50DataSource,
-  Content120DataSource,
-  Contact00DataSource,
+  Footer10DataSource,
 } from './data.source';
 import './less/antMotionStyle.less';
 
@@ -71,43 +61,13 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const children = [
-      <Banner3
-        id="Banner3_0"
-        key="Banner3_0"
-        dataSource={Banner30DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Feature4
-        id="woyuandongtai"
-        key="Feature4_0"
-        dataSource={Feature40DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Content8
-        id="zhuanjiatuandui"
-        key="Content8_0"
-        dataSource={Content80DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Content5
-        id="jingdiananli"
-        key="Content5_0"
-        dataSource={Content50DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Content12
-        id="fuhuaqiye"
-        key="Content12_0"
-        dataSource={Content120DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Contact0
-        id="map"
-        key="Contact0_0"
-        dataSource={Contact00DataSource}
-        isMobile={this.state.isMobile}
-      />,
+    const foot = [
+      <Footer1
+      id="Footer1_0"
+      key="Footer1_0"
+      dataSource={Footer10DataSource}
+      isMobile={this.state.isMobile}
+    />
   ];
     return (
       <div
@@ -116,9 +76,7 @@ export default class Home extends React.Component {
           this.dom = d;
         }}
       >
-        {/* 如果不是 dva 2.0 替换成 {children} start */}
-        {this.state.show && children}
-        {/* 如果不是 dva 2.0 替换成 {children} end */}
+        {foot/* 如果不是 dva 2.0 替换成 {children} end */}
       </div>
     );
   }

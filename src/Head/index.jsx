@@ -3,20 +3,12 @@
 import React from 'react';
 import { enquireScreen } from 'enquire-js';
 import scrollScreen from 'rc-scroll-anim/lib/ScrollScreen';
-import Banner3 from './Banner3';
-import Feature4 from './Feature4';
-import Content8 from './Content8';
-import Content5 from './Content5';
-import Content12 from './Content12';
-import Contact0 from './Contact0';
+import Nav2 from './Nav2';
+import Nav3 from './Nav3';
 
 import {
-  Banner30DataSource,
-  Feature40DataSource,
-  Content80DataSource,
-  Content50DataSource,
-  Content120DataSource,
-  Contact00DataSource,
+  Nav20DataSource,
+  Nav30DataSource,
 } from './data.source';
 import './less/antMotionStyle.less';
 
@@ -71,44 +63,21 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const children = [
-      <Banner3
-        id="Banner3_0"
-        key="Banner3_0"
-        dataSource={Banner30DataSource}
+    const head = [
+      <Nav2
+        id="Nav1"
+        key="Nav2_0"
+        dataSource={Nav20DataSource}
         isMobile={this.state.isMobile}
       />,
-      <Feature4
-        id="woyuandongtai"
-        key="Feature4_0"
-        dataSource={Feature40DataSource}
+      <Nav3
+        id="Nav2"
+        key="Nav3_0"
+        dataSource={Nav30DataSource}
         isMobile={this.state.isMobile}
-      />,
-      <Content8
-        id="zhuanjiatuandui"
-        key="Content8_0"
-        dataSource={Content80DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Content5
-        id="jingdiananli"
-        key="Content5_0"
-        dataSource={Content50DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Content12
-        id="fuhuaqiye"
-        key="Content12_0"
-        dataSource={Content120DataSource}
-        isMobile={this.state.isMobile}
-      />,
-      <Contact0
-        id="map"
-        key="Contact0_0"
-        dataSource={Contact00DataSource}
-        isMobile={this.state.isMobile}
-      />,
-  ];
+      />
+    ];
+  
     return (
       <div
         className="templates-wrapper"
@@ -116,9 +85,7 @@ export default class Home extends React.Component {
           this.dom = d;
         }}
       >
-        {/* 如果不是 dva 2.0 替换成 {children} start */}
-        {this.state.show && children}
-        {/* 如果不是 dva 2.0 替换成 {children} end */}
+        {head}
       </div>
     );
   }
