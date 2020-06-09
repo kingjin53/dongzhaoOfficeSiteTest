@@ -2,14 +2,20 @@ import React from 'react';
 import TweenOne from 'rc-tween-one';
 import { Menu } from 'antd';
 import { getChildrenToRender } from './utils';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 const { Item, SubMenu } = Menu;
-import { browserHistory} from 'react-router';
 
 class Header3 extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
-      phoneOpen: undefined,
+      phoneOpen: undefined
     };
   }
 
@@ -20,8 +26,22 @@ class Header3 extends React.Component {
     });
   };
 
-  linkTo = (item) => {
-    browserHistory.push(item.key);
+  scrollToAnchor = (obj) => {
+    if (obj) {
+      // setInterval( () => {},1000)
+      let url = obj.target.href
+      let index = url.indexOf('#')
+      if(index <=0){
+        return 
+      }
+      let anchorName = url.substring(index+1)
+      // alert(anchorName)
+        // 找到锚点
+        let anchorElement = document.getElementById(anchorName);
+        // 如果对应id的锚点存在，就跳转到锚点
+        if(anchorElement) { anchorElement.scrollIntoView(); }
+    }
+
   }
 
   render() {
@@ -29,7 +49,7 @@ class Header3 extends React.Component {
     const { phoneOpen } = this.state;
     const navData = dataSource.Menu.children;
     const navChildren = navData.map((item) => {
-      const { children: a, subItem, ...itemProps } = item;
+      const { children: a, subItem, path, ...itemProps } = item;
       if (subItem) {
         return (
           <SubMenu
@@ -65,13 +85,27 @@ class Header3 extends React.Component {
           </SubMenu>
         );
       }
-      return (
-        <Item key={item.name} {...itemProps}>
-          <a {...a} className={`header3-item-block ${a.className}`.trim()}>
-            {a.children.map(getChildrenToRender)}
-          </a>
-        </Item>
-      );
+      if(path){
+        return (
+          <Item key={item.name} {...itemProps}>
+            {/* <a {...a} className={`header3-item-block ${a.className}`.trim()}>
+              {a.children.map(getChildrenToRender)}
+            </a> */}
+            <Link to={path} onClick={this.scrollToAnchor}>
+              {/* <Link {...a}>  */}
+                  {a.children.map(getChildrenToRender)}
+              </Link>
+          </Item>
+        );
+      }else{
+        return (
+          <Item key={item.name} {...itemProps}>
+            <a {...a} className={`header3-item-block ${a.className}`.trim()}>
+              {a.children.map(getChildrenToRender)}
+            </a>
+          </Item>
+        );
+      }
     });
     const moment = phoneOpen === undefined ? 300 : null;
     return (
@@ -127,6 +161,7 @@ class Header3 extends React.Component {
               mode={isMobile ? 'inline' : 'horizontal'}
               defaultSelectedKeys={['sub0']}
               theme="light"
+              onClick={this.linkTo}
             >
               {navChildren}
             </Menu>

@@ -40,8 +40,9 @@ export const Nav30DataSource = {
       {
         name: 'item0',
         className: 'header3-item',
+        path:'/home',
         children: {
-          href: '#/home',
+          href: '#',
           children: [
             {
               children: (
@@ -60,7 +61,7 @@ export const Nav30DataSource = {
             },
           ],
         },
-        subItem: [
+      //  subItem: [
           // {
           //   name: 'sub0',
           //   className: 'item-sub',
@@ -111,13 +112,14 @@ export const Nav30DataSource = {
           //     ],
           //   },
           // },
-        ],
+      //  ],
       },
       {
         name: 'item1',
         className: 'header3-item',
+        path:'/test',
         children: {
-          href: '#/test',
+          href: '#',
           children: [
             {
               children: (
@@ -137,6 +139,7 @@ export const Nav30DataSource = {
       {
         name: 'item2',
         className: 'header3-item',
+        path:'/test1',
         children: {
           href: '#',
           children: [
@@ -162,7 +165,9 @@ export const Nav30DataSource = {
       {
         name: 'item3',
         className: 'header3-item',
+        path:'/home#zhuanjiatuandui',
         children: {
+          to:'/home',
           href: '#zhuanjiatuandui',
           children: [
             {
@@ -292,7 +297,6 @@ export const Nav30DataSource = {
         key:'test',
         children: {
           href: '#',
-          onClick:'{this.linkTo}',
           children: [
             {
               children: (
