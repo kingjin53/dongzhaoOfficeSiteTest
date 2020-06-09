@@ -117,7 +117,7 @@ export const Nav30DataSource = {
       {
         name: 'item1',
         className: 'header3-item',
-        path:'/test',
+        path:'/yjygk',
         children: {
           href: '#',
           children: [

@@ -4,6 +4,7 @@ import './index.css';
 import App from './Home';
 import Head from './Head';
 import Foot from './Foot';
+import YJYGK from './YJYGK';
 import * as serviceWorker from './serviceWorker';
 import {
   BrowserRouter as Router,
@@ -53,8 +54,8 @@ ReactDOM.render(
     <Route path="/home" onEnter={hashLinkScroll}>
       <App />
     </Route>
-    <Route path="/test">
-      <Foot />
+    <Route path="/yjygk">
+      <YJYGK />
     </Route>
     <Route path="/test1">
       <Head />
