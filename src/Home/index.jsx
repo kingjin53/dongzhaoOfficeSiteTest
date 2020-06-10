@@ -62,7 +62,6 @@ export default class Home extends React.Component {
             'Content5_0',
             'Content12_0',
             'Contact0_0',
-            'Footer1_0',
           ],
         });
       }, 500);

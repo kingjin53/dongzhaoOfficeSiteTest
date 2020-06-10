@@ -1,5 +1,81 @@
 @content7: content7;
+@teams1: teams1;
 .@{content7}-wrapper {
+  .block-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    .block {
+      display: inline-block;
+      text-align: center;
+      margin-bottom: 48px;
+      &.queue-anim-leaving {
+        position: relative !important;
+      }
+    }
+  }
+  .teams1-image, .teams1-title, .teams1-job, .teams1-content {
+    width: 200px;
+    margin: auto;
+    line-height: 1.5;
+  }
+  .teams1-image {
+    color: #404040;
+    img {
+      width: 100%;
+    }
+  }
+  .teams1-title {
+    font-size: 24px;
+    margin: 24px auto 8px;
+  }
+  .teams1-job {
+    margin: 8px auto;
+  }
+  .teams1-job, teams1-content {
+    font-size: 12px;
+    color: #919191;
+  }
+  
+  .content-wrapper {
+    margin-top: 72px;
+    .@{content7}-block-wrapper {
+      margin-bottom: 60px;
+    }
+    .@{content7}-block {
+      width: 100%;
+      max-width: 192px;
+      margin: auto;
+    }
+    .@{content7}-img {
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      img {
+        width: 100%;
+        display: block;
+        &[src=""] {
+          background: linear-gradient(to top right, #d6defc, #fff);
+          padding-bottom: 100%;
+        }
+      }
+    }
+    .@{content7}-title {
+      font-size: 20px;
+      color: #0d1a26;
+      font-weight: 400;
+      margin: 24px auto 8px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .@{content7}-content {
+      text-align: center;
+      white-space: nowrap;
+      font-size: 14px;
+      color: #697b8c;
+    }
+  }
   min-height: 720px;
   .@{content7} {
     >h1,
@@ -44,7 +120,12 @@
     .ant-tabs-tabpane {
       margin-top: 40px;
     }
+    > .title-wrapper {
+      margin: 0 auto 48px;
+    }
+    
   }
+
 }
 
 @media screen and (max-width: 767px) {
