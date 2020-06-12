@@ -1,4 +1,5 @@
 import React from 'react';
+import { Tag, Space } from 'antd';
 
 export const Feature50DataSource = {
   wrapper: { className: 'home-page-wrapper content7-wrapper' },
@@ -32,7 +33,7 @@ export const Feature50DataSource = {
             ),
             className: 'content7-tag-name',
           },
-          icon: { children: 'mobile' },
+          icon: { children: '' },
         },
         content: {
           className: 'content7-content',
@@ -74,7 +75,7 @@ export const Feature50DataSource = {
         name: 'block1',
         tag: {
           className: 'content7-tag',
-          icon: { children: 'tablet' },
+          icon: { children: '' },
           text: {
             className: 'content7-tag-name',
             children: (
@@ -206,7 +207,7 @@ export const Feature50DataSource = {
             ),
             className: 'content7-tag-name',
           },
-          icon: { children: 'laptop' },
+          icon: { children: '' },
         },
         content: {
           className: 'content7-content',
@@ -246,7 +247,7 @@ export const Feature50DataSource = {
             ),
             className: 'content7-tag-name',
           },
-          icon: { children: 'laptop' },
+          icon: { children: '' },
         },
         content: {
           className: 'content7-content',
@@ -271,33 +272,35 @@ export const Feature50DataSource = {
       {
         name: 'block~kb7mtqpvqqi',
         tag: {
-          className: 'content7-tag',
+          className: 'content9-tag',
           text: {
             children: (
               <span>
                 <p>发展历程</p>
               </span>
             ),
-            className: 'content7-tag-name',
+            className: 'content9-tag-name',
           },
-          icon: { children: 'laptop' },
+          icon: { children: '' },
+          wrapper: { className: 'home-page-wrapper content9-wrapper' },
+          page: { className: 'home-page content9' },
           titleWrapper: {
             className: 'title-wrapper',
             children: [
               {
                 name: 'image',
                 children:
-                  'https://gw.alipayobjects.com/zos/rmsportal/PiqyziYmvbgAudYfhuBr.svg',
+                  './dz_logo_128.png',
                 className: 'title-image',
               },
-              { name: 'title', children: '会议日程', className: 'title-h1' },
+              { name: 'title', children: '跑出建筑产业转型升级的加速度', className: 'title-h1' },
             ],
           }
         },
         content: {
-          className: 'content7-content',
+          className: 'content9-content',
           text: {
-            className: 'content7-text',
+            className: 'content9-text',
             md: 14,
             xs: 24,
             children: {
@@ -320,11 +323,11 @@ export const Feature50DataSource = {
                       children:
                         'https://gw.alipayobjects.com/zos/rmsportal/qJnGrvjXPxdKETlVSrbe.svg',
                     },
-                    name: { className: 'block-name', children: '姓名' },
-                    post: { className: 'block-post', children: '公司 职位' },
-                    time: { className: 'block-time', children: '09:00 - 10:00' },
-                    title: { className: 'block-title', children: '开幕致辞' },
-                    content: { className: 'block-content', children: '' },
+                    name: { className: 'block-name', children: '2019' },
+                    post: { className: 'block-post', children: '01 季度' },
+                    time: { className: 'block-time', children: '重要节点' },
+                    title: { className: 'block-title', children: '住房城乡建设部发布《关于推进建筑企业发展和改革的若干意见》' },
+                    content: { className: 'block-content', children: '建设部发文' },
                   },
                 },
                 {
@@ -344,14 +347,14 @@ export const Feature50DataSource = {
                       children:
                         'https://gw.alipayobjects.com/zos/rmsportal/QviGtUPvTFxdhsTUAacr.svg',
                     },
-                    name: { className: 'block-name', children: '姓名' },
-                    post: { className: 'block-post', children: '公司 职位' },
-                    time: { className: 'block-time', children: '09:00 - 10:00' },
-                    title: { className: 'block-title', children: '演示标题 - XYZ' },
+                    name: { className: 'block-name', children: '2019' },
+                    post: { className: 'block-post', children: '09 月份' },
+                    time: { className: 'block-time', children: '里程碑' },
+                    title: { className: 'block-title', children: '产品发布' },
                     content: {
                       className: 'block-content',
                       children:
-                        '经过近 3 年的打磨，在助力中台产品研发效能提升的目标之上，包含设计语言、UI 资产、可视化以及产品体验相关的蚂蚁中台设计体系正在逐步成型。此次分享包含两部分，在介绍蚂蚁设计体系的同时，也会和大家分享我们在设计语言的部分探索。',
+                        '自主研发的“云建BIM项目管理平台”正式上线，并申请12项专利',
                     },
                   },
                 },
@@ -415,7 +418,7 @@ export const Feature50DataSource = {
             },
           },
           img: {
-            className: 'content7-img',
+            className: 'content9-img',
             md: 10,
             xs: 24,
             children:
@@ -435,29 +438,54 @@ export const Feature50DataSource = {
             ),
             className: 'content7-tag-name',
           },
-          icon: { children: 'laptop' },
+          icon: { children: '' },
         },
         content: {
           className: 'content7-content',
+          data : [
+            {
+              key: '1',
+              name: '2019年7月2日',
+              age: '武汉金控大厦项目',
+              address: '获得建设部智慧工地标杆项目奖',
+            },
+            {
+              key: '2',
+              name: '2019年7月2日',
+              age: '武汉金控大厦项目',
+              address: '获得建设部智慧工地标杆项目奖',
+            },
+            {
+              key: '3',
+              name: '2019年7月2日',
+              age: '武汉金控大厦项目',
+              address: '获得建设部智慧工地标杆项目奖',
+            },
+          ],
+          columns : [
+            {
+              title: '时间',
+              dataIndex: 'name',
+              key: 'name',
+              render: text => <a>{text}</a>,
+            },
+            {
+              title: '项目名称',
+              dataIndex: 'age',
+              key: 'age',
+            },
+            {
+              title: '所获奖项',
+              dataIndex: 'address',
+              key: 'address',
+            }
+          ],
           text: {
             className: 'content7-text',
             md: 14,
             xs: 24,
             children: (
               <span>
-                <h3>技术</h3>
-                <p>
-                  丰富的技术组件，简单组装即可快速搭建金融级应用，丰富的技术组件，简单组装即可快速搭建金融级应用。
-                </p>
-                <br />
-                <h3>融合</h3>
-                <p>
-                  解放业务及技术生产力，推动金融服务底层创新，推动金融服务底层创新。解放业务及技术生产力，推动金融服务底层创新。
-                </p>
-                <br />
-                <h3>
-                  开放
-                </h3>符合金融及要求的安全可靠、高可用、高性能的服务能力，符合金融及要求的安全可靠、高可用、高性能的服务能力。
               </span>
             ),
           },

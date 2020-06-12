@@ -1,12 +1,13 @@
 import React from 'react';
-import TweenOne from 'rc-tween-one';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { Tabs, Row, Col } from 'antd';
+import { Tabs, Row, Col, Table, Carousel, Card } from 'antd';
 import { Icon } from '@ant-design/compatible';
 import { getChildrenToRender } from './utils';
 import { Divider } from 'antd';
+import QueueAnim from 'rc-queue-anim';
 
 const TabPane = Tabs.TabPane;
+const { Meta } = Card;
 
 class Content7 extends React.Component {
   constructor(props) {
@@ -53,23 +54,55 @@ class Content7 extends React.Component {
     );
   };
 
-  getFZBlockChildren = (item, i) => {
+  getFZBlockChildren = (item1, i) => {
     // const { titleWrapper, ...$item } = item;
-    const item1 = item.children;
+    const item = item1.children;
+    const textWrapper = (
+      <QueueAnim
+        key="text"
+        leaveReverse
+        delay={0}
+        {...item.textWrapper}
+      >
+        <div key="time" {...item.time}>
+          {item.time.children}
+        </div>
+        <h2 key="title" {...item.title}>
+          <i {...item.icon}>
+            <img src={item.icon.children} alt="img" />
+          </i>
+          {item.title.children}
+        </h2>
+        <div key="p" {...item.content}>
+          {item.content.children}
+        </div>
+      </QueueAnim>
+    );
     return (
-      <div>
-          <div key="image" {...item1.img}>
-            <img src={item1.img.children} alt="img" />
+      <OverPack key={i.toString()} {...item1}>
+        <QueueAnim
+          className="image-wrapper"
+          key="image"
+          type={'bottom'}
+          leaveReverse
+          delay={ 0}
+          {...item.imgWrapper}
+        >
+          <div key="image" {...item.img}>
+            <img src={item.img.children} alt="img" />
           </div>
           <div key="name" className="name-wrapper">
-            <div key="name" {...item1.name}>
-              {item1.name.children}
+            <div key="name" {...item.name}>
+              {item.name.children}
             </div>
-            <div key="post" {...item1.post}>
-              {item1.post.children}
+            <div key="post" {...item.post}>
+              {item.post.children}
             </div>
           </div>
-      </div>
+        </QueueAnim>
+
+        { textWrapper}
+      </OverPack>
     );
   };
 
@@ -80,6 +113,7 @@ class Content7 extends React.Component {
     const { icon } = tag;
     const iconChildren = icon.children;
     const tagText = tag.text;
+    const paging = false;
     var tabContent;
     if(i + 1 === 1){
         tabContent =  
@@ -118,12 +152,53 @@ class Content7 extends React.Component {
       const { wrapper,page, titleWrapper } = tag;
       const fzChildren = textChildren.children.map(this.getFZBlockChildren);
       tabContent =   
+                    <div {...tag} {...wrapper}>
                       <div {...page}>
                         <div {...titleWrapper}>
                           {titleWrapper.children.map(getChildrenToRender)}
                         </div>
-                        <div {...textChildren.children}>{fzChildren}</div>
+                        <div class={'timeline'}>{fzChildren}</div>
                       </div>
+                     </div> 
+    }else if(i + 1 === 6){
+      const { columns, data } = content;
+      tabContent = 
+      <div>
+        <Table columns={columns} dataSource={data} pagination={paging} />
+        <br/>
+        <br/>
+        <Carousel autoplay dotPosition={'top'}>
+          <div>
+          <Card
+              hoverable
+              style={{ width: 1100 }}
+              cover={<img alt="example" src={'./xm1.jpg'} />}
+            >
+              <Meta title="武汉金控大厦项目1" description="更多详情请点击www.instagram.com" />
+            </Card>
+          </div>
+          <div>
+          <Card
+              hoverable
+              style={{ width: 1100 }}
+              cover={<img alt="example" src={'./xm3.png'} />}
+            >
+              <Meta title="如东文体中心项目" description="更多详情请点击www.instagram.com" />
+            </Card>
+          </div>
+          <div>
+            {/* <h3>武汉金控大厦项目4</h3>
+            <img src={img.children} alt="img" /> */}
+            <Card
+              hoverable
+              style={{ width: 1100 }}
+              cover={<img alt="example" src={'./xm2.png'} />}
+            >
+              <Meta title="武汉金控大厦项目4" description="更多详情请点击www.instagram.com" />
+            </Card>
+          </div>
+        </Carousel>
+      </div>
     }else{
       tabContent = <div/>
     }
@@ -164,7 +239,7 @@ class Content7 extends React.Component {
             {dataSource.titleWrapper.children.map(getChildrenToRender)}
           </div>
 
-          <OverPack {...dataSource.OverPack}>
+          {/* <OverPack {...dataSource.OverPack}>
             <TweenOne.TweenOneGroup
               key="tabs"
               enter={{
@@ -175,7 +250,7 @@ class Content7 extends React.Component {
               }}
               leave={{ y: 30, opacity: 0 }}
               {...dataSource.tabsWrapper}
-            >
+            > */}
               <Tabs
                 key="tabs"
                 onChange={this.onChange}
@@ -184,8 +259,8 @@ class Content7 extends React.Component {
               >
                 {tabsChildren}
               </Tabs>
-            </TweenOne.TweenOneGroup>
-          </OverPack>
+            {/* </TweenOne.TweenOneGroup>
+          </OverPack> */}
         </div>
       </div>
     );
